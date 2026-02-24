@@ -1,18 +1,32 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ListTodo, Plus, MoreVertical, Calendar, Check } from 'lucide-react';
 import * as Checkbox from '@radix-ui/react-checkbox';
 
 export function TodoWidget() {
-  const [tasks, setTasks] = useState([
-    { id: 1, text: 'پیگیری خسارت آقای رضایی', completed: false, priority: 'high', due: 'امروز' },
-    { id: 2, text: 'ارسال پیش‌فاکتور شرکت آلفا', completed: false, priority: 'medium', due: 'فردا' },
-    { id: 3, text: 'بررسی کارمزد ماه گذشته', completed: true, priority: 'low', due: 'دیروز' },
-  ]);
+  const [tasks, setTasks] = useState<any[]>([]);
+
+  useEffect(() => {
+    fetch('/api/db/todos')
+      .then(res => res.json())
+      .then(data => {
+        if (Array.isArray(data)) setTasks(data);
+      });
+  }, []);
 
   const toggleTask = (id: number) => {
-    setTasks(tasks.map(t => t.id === id ? { ...t, completed: !t.completed } : t));
+    const task = tasks.find(t => t.id === id);
+    if (!task) return;
+    const newCompleted = !task.completed;
+
+    setTasks(tasks.map(t => t.id === id ? { ...t, completed: newCompleted } : t));
+
+    fetch(`/api/db/todos/${id}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ completed: newCompleted })
+    });
   };
 
   return (
@@ -29,13 +43,12 @@ export function TodoWidget() {
 
       <div className="flex-1 overflow-y-auto pr-1 -mr-1 space-y-2">
         {tasks.map((task) => (
-          <div 
-            key={task.id} 
-            className={`group flex items-start gap-3 p-3 rounded-2xl border transition-all ${
-              task.completed 
-                ? 'bg-slate-50/50 dark:bg-slate-800/30 border-transparent opacity-60' 
+          <div
+            key={task.id}
+            className={`group flex items-start gap-3 p-3 rounded-2xl border transition-all ${task.completed
+                ? 'bg-slate-50/50 dark:bg-slate-800/30 border-transparent opacity-60'
                 : 'bg-white/60 dark:bg-slate-800/60 border-slate-200/50 dark:border-slate-700/50 hover:shadow-sm'
-            }`}
+              }`}
           >
             <Checkbox.Root
               className="flex h-5 w-5 appearance-none items-center justify-center rounded-md bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 outline-none data-[state=checked]:bg-indigo-500 data-[state=checked]:border-indigo-500 mt-0.5"
@@ -46,16 +59,15 @@ export function TodoWidget() {
                 <Check className="w-3.5 h-3.5" />
               </Checkbox.Indicator>
             </Checkbox.Root>
-            
+
             <div className="flex-1 flex flex-col">
               <span className={`text-sm font-medium ${task.completed ? 'text-slate-500 line-through' : 'text-slate-700 dark:text-slate-200'}`}>
                 {task.text}
               </span>
               <div className="flex items-center gap-2 mt-1.5">
-                <span className={`w-2 h-2 rounded-full ${
-                  task.priority === 'high' ? 'bg-rose-500' : 
-                  task.priority === 'medium' ? 'bg-amber-500' : 'bg-emerald-500'
-                }`} />
+                <span className={`w-2 h-2 rounded-full ${task.priority === 'high' ? 'bg-rose-500' :
+                    task.priority === 'medium' ? 'bg-amber-500' : 'bg-emerald-500'
+                  }`} />
                 <span className="text-[10px] text-slate-500 flex items-center gap-1">
                   <Calendar className="w-3 h-3" />
                   {task.due}
