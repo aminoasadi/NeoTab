@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NeoTab</title>
+  <link rel="stylesheet" href="newtab.css">
+</head>
+<body>
+  <div class="background-pattern"></div>
+  
+  <!-- Floating Header Components -->
+  <header class="floating-header">
+    <div class="header-left">
+      <div id="datetime-widget" class="glass-chip">
+        <div class="time" id="current-time">--:--</div>
+        <div class="date" id="current-date">----/--/--</div>
+      </div>
+    </div>
+    <div class="header-right">
+      <div id="weather-widget" class="glass-chip">
+        <span class="weather-icon" id="weather-icon">🌤️</span>
+        <div class="weather-info">
+          <span id="weather-temp" class="temp">--°</span>
+          <span id="weather-desc" class="text-small">در حال دریافت...</span>
+        </div>
+      </div>
+      <button id="settings-btn" class="glass-chip icon-btn" title="تنظیمات">⚙️</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Search Module -->
+    <section class="search-module">
+      <form id="search-form">
+        <div class="search-input-wrapper">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="search-input" placeholder="جستجو در اینترنت..." autocomplete="off" autofocus>
+          <div class="search-actions">
+            <button type="button" id="clear-search" class="icon-btn-small hidden" title="پاک کردن">✕</button>
+            <button type="button" id="voice-search" class="icon-btn-small" title="جستجوی صوتی">🎤</button>
+            <div class="divider"></div>
+            <select id="search-engine" class="engine-select">
+              <option value="google">Google</option>
+              <option value="bing">Bing</option>
+              <option value="duckduckgo">DuckDuckGo</option>
+            </select>
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <!-- Bookmarks Module -->
+    <section class="bookmarks-module">
+      <div id="bookmarks-container" class="bookmarks-grid">
+        <!-- Bookmarks injected here -->
+      </div>
+      <button id="add-bookmark-btn" class="add-btn glass-chip">
+        <span>+</span> افزودن
+      </button>
+    </section>
+
+    <!-- Widgets Row -->
+    <section class="widgets-row">
+      <!-- Todo Widget -->
+      <div class="widget glass-panel">
+        <div class="widget-header">
+          <h3>لیست کارها</h3>
+        </div>
+        <div class="widget-content">
+          <form id="todo-form" class="todo-form">
+            <input type="text" id="todo-input" placeholder="کار جدید..." autocomplete="off">
+            <button type="submit" class="primary-btn">+</button>
+          </form>
+          <ul id="todo-list" class="todo-list"></ul>
+        </div>
+      </div>
+
+      <!-- Notes Widget -->
+      <div class="widget glass-panel">
+        <div class="widget-header">
+          <h3>یادداشت سریع</h3>
+        </div>
+        <div class="widget-content">
+          <textarea id="quick-notes" placeholder="یادداشت‌های خود را اینجا بنویسید..."></textarea>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="newtab.js" type="module"></script>
+</body>
+</html>
