@@ -75,40 +75,78 @@
     <!-- Dashboard Grid -->
     <section class="dashboard-grid">
       
-      <!-- Right Column -->
+      <!-- Right Column (KPIs, Target, Quote) -->
       <div class="col-right">
-        <!-- Calendar Mock -->
+        <!-- KPIs Mock -->
         <div class="widget glass-panel">
           <div class="widget-header flex-between">
             <div class="flex-center gap-2">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-500"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-              <h3>تقویم</h3>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-500"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+              <h3>شاخص‌های امروز</h3>
             </div>
-            <span class="text-sm text-muted">اسفند ۱۴۰۴</span>
           </div>
           <div class="widget-content">
-            <div class="calendar-grid">
-              <div class="cal-day-header">ش</div><div class="cal-day-header">ی</div><div class="cal-day-header">د</div><div class="cal-day-header">س</div><div class="cal-day-header">چ</div><div class="cal-day-header">پ</div><div class="cal-day-header">ج</div>
-              <div class="cal-day empty"></div><div class="cal-day empty"></div><div class="cal-day empty"></div><div class="cal-day empty"></div><div class="cal-day empty"></div><div class="cal-day">۱</div><div class="cal-day">۲</div>
-              <div class="cal-day">۳</div><div class="cal-day">۴</div><div class="cal-day active">۵</div><div class="cal-day">۶</div><div class="cal-day">۷</div><div class="cal-day">۸</div><div class="cal-day">۹</div>
-              <div class="cal-day">۱۰</div><div class="cal-day">۱۱</div><div class="cal-day">۱۲</div><div class="cal-day">۱۳</div><div class="cal-day">۱۴</div><div class="cal-day">۱۵</div><div class="cal-day">۱۶</div>
-            </div>
-            <div class="mt-4">
-              <h4 class="text-xs text-muted mb-2">برنامه‌های امروز</h4>
-              <div class="event-item border-l-purple">
-                <div class="event-title">جلسه تمدید آلفا</div>
-                <div class="event-time">۱۰:۰۰</div>
+            <div class="kpi-grid">
+              <div class="kpi-card">
+                <div class="kpi-icon bg-indigo-50 text-indigo-500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg></div>
+                <div class="kpi-value">۱۲</div>
+                <div class="kpi-label">تعداد صدور</div>
               </div>
-              <div class="event-item border-l-blue mt-2">
-                <div class="event-title">پیگیری خسارت</div>
-                <div class="event-time">۱۴:۳۰</div>
+              <div class="kpi-card">
+                <div class="kpi-icon bg-emerald-50 text-emerald-500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></div>
+                <div class="kpi-value">۴۵ <span class="text-xs">م.ت</span></div>
+                <div class="kpi-label">حق‌بیمه</div>
+              </div>
+              <div class="kpi-card">
+                <div class="kpi-icon bg-amber-50 text-amber-500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
+                <div class="kpi-value">۳</div>
+                <div class="kpi-label">در انتظار تایید</div>
+              </div>
+              <div class="kpi-card">
+                <div class="kpi-icon bg-rose-50 text-rose-500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg></div>
+                <div class="kpi-value">۵</div>
+                <div class="kpi-label">خسارت باز</div>
               </div>
             </div>
           </div>
         </div>
+
+        <!-- Target Mock -->
+        <div class="widget glass-panel h-auto">
+          <div class="widget-header flex-between">
+            <div class="flex-center gap-2">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-purple-500"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+              <h3>هدف ماهانه</h3>
+            </div>
+            <span class="text-sm font-bold text-purple-600">۶۵٪</span>
+          </div>
+          <div class="widget-content">
+            <div class="flex justify-between text-sm mb-2">
+              <span class="text-muted">فروش فعلی: ۶۵۰ م.ت</span>
+              <span class="text-muted">هدف: ۱,۰۰۰ م.ت</span>
+            </div>
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" style="width: 65%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quote Mock -->
+        <div class="widget glass-panel h-auto quote-widget">
+          <div class="quote-icon-bg">
+            <svg width="96" height="96" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"></path></svg>
+          </div>
+          <div class="widget-header">
+            <h2 class="text-sm font-bold text-muted uppercase tracking-wider">جمله روز</h2>
+          </div>
+          <div class="widget-content relative z-10">
+            <p class="text-lg font-medium leading-relaxed italic">«موفقیت در بیمه، فروش یک محصول نیست؛ بلکه ایجاد یک رابطه مبتنی بر اعتماد است.»</p>
+            <p class="text-xs font-semibold text-muted mt-4 text-left">— برایان تریسی</p>
+          </div>
+        </div>
       </div>
 
-      <!-- Center Column -->
+      <!-- Center Column (Action Center, Todo, Notes) -->
       <div class="col-center">
         <!-- Action Center Mock -->
         <div class="widget glass-panel action-center">
@@ -157,7 +195,7 @@
           </div>
         </div>
 
-        <div class="grid-2-col mt-4">
+        <div class="grid-2-col">
           <!-- Todo Widget -->
           <div class="widget glass-panel h-auto">
             <div class="widget-header flex-between">
@@ -192,58 +230,68 @@
         </div>
       </div>
 
-      <!-- Left Column -->
+      <!-- Left Column (Calendar, Alerts) -->
       <div class="col-left">
-        <!-- KPIs Mock -->
-        <div class="widget glass-panel">
+        <!-- Calendar Mock -->
+        <div class="widget glass-panel h-auto">
           <div class="widget-header flex-between">
             <div class="flex-center gap-2">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-500"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
-              <h3>شاخص‌های امروز</h3>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-500"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              <h3>تقویم</h3>
             </div>
+            <span class="text-sm text-muted">اسفند ۱۴۰۴</span>
           </div>
           <div class="widget-content">
-            <div class="kpi-grid">
-              <div class="kpi-card">
-                <div class="kpi-icon bg-indigo-50 text-indigo-500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg></div>
-                <div class="kpi-value">۱۲</div>
-                <div class="kpi-label">تعداد صدور</div>
+            <div class="calendar-grid">
+              <div class="cal-day-header">ش</div><div class="cal-day-header">ی</div><div class="cal-day-header">د</div><div class="cal-day-header">س</div><div class="cal-day-header">چ</div><div class="cal-day-header">پ</div><div class="cal-day-header">ج</div>
+              <div class="cal-day empty"></div><div class="cal-day empty"></div><div class="cal-day empty"></div><div class="cal-day empty"></div><div class="cal-day empty"></div><div class="cal-day">۱</div><div class="cal-day">۲</div>
+              <div class="cal-day">۳</div><div class="cal-day">۴</div><div class="cal-day active">۵</div><div class="cal-day">۶</div><div class="cal-day">۷</div><div class="cal-day">۸</div><div class="cal-day">۹</div>
+              <div class="cal-day">۱۰</div><div class="cal-day">۱۱</div><div class="cal-day">۱۲</div><div class="cal-day">۱۳</div><div class="cal-day">۱۴</div><div class="cal-day">۱۵</div><div class="cal-day">۱۶</div>
+            </div>
+            <div class="mt-4">
+              <h4 class="text-xs text-muted mb-2">برنامه‌های امروز</h4>
+              <div class="event-item border-l-purple">
+                <div class="event-title">جلسه تمدید آلفا</div>
+                <div class="event-time">۱۰:۰۰</div>
               </div>
-              <div class="kpi-card">
-                <div class="kpi-icon bg-emerald-50 text-emerald-500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></div>
-                <div class="kpi-value">۴۵ <span class="text-xs">م.ت</span></div>
-                <div class="kpi-label">حق‌بیمه</div>
-              </div>
-              <div class="kpi-card">
-                <div class="kpi-icon bg-amber-50 text-amber-500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
-                <div class="kpi-value">۳</div>
-                <div class="kpi-label">در انتظار تایید</div>
-              </div>
-              <div class="kpi-card">
-                <div class="kpi-icon bg-rose-50 text-rose-500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg></div>
-                <div class="kpi-value">۵</div>
-                <div class="kpi-label">خسارت باز</div>
+              <div class="event-item border-l-blue mt-2">
+                <div class="event-title">پیگیری خسارت</div>
+                <div class="event-time">۱۴:۳۰</div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Target Mock -->
-        <div class="widget glass-panel mt-4 h-auto">
+        <!-- Alerts Mock -->
+        <div class="widget glass-panel h-auto">
           <div class="widget-header flex-between">
             <div class="flex-center gap-2">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-purple-500"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
-              <h3>هدف ماهانه</h3>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-500"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+              <h3>اعلان‌ها و هشدارها</h3>
             </div>
-            <span class="text-sm font-bold text-purple-600">۶۵٪</span>
+            <span class="badge badge-info text-xs">۳ جدید</span>
           </div>
-          <div class="widget-content">
-            <div class="flex justify-between text-sm mb-2">
-              <span class="text-muted">فروش فعلی: ۶۵۰ م.ت</span>
-              <span class="text-muted">هدف: ۱,۰۰۰ م.ت</span>
+          <div class="widget-content flex flex-col gap-3">
+            <div class="alert-item alert-warning">
+              <div class="alert-icon text-amber-500"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg></div>
+              <div class="alert-content">
+                <div class="alert-title text-amber-500">هشدار افت عملکرد</div>
+                <div class="alert-desc">صدور بیمه‌نامه در هفته جاری ۲۰٪ کاهش یافته است.</div>
+              </div>
             </div>
-            <div class="progress-bar-bg">
-              <div class="progress-bar-fill" style="width: 65%;"></div>
+            <div class="alert-item alert-error">
+              <div class="alert-icon text-rose-500"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg></div>
+              <div class="alert-content">
+                <div class="alert-title text-rose-500">رد شدن بیمه‌نامه بدنه</div>
+                <div class="alert-desc">بیمه‌نامه شماره ۱۲۳۴۵ به دلیل نقص مدارک رد شد.</div>
+              </div>
+            </div>
+            <div class="alert-item alert-info">
+              <div class="alert-icon text-blue-500"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg></div>
+              <div class="alert-content">
+                <div class="alert-title text-blue-500">بروزرسانی سیستم سنهاب</div>
+                <div class="alert-desc">سیستم سنهاب فردا از ساعت ۲ تا ۴ بامداد در دسترس نخواهد بود.</div>
+              </div>
             </div>
           </div>
         </div>
