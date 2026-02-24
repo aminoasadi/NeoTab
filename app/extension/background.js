@@ -7,7 +7,11 @@ chrome.runtime.onInstalled.addListener(() => {
       chrome.storage.local.set({
         bookmarks: [
           { id: 1, title: 'Neo Core', url: 'https://example.com' },
-          { id: 2, title: 'Google', url: 'https://google.com' }
+          { id: 2, title: 'صدور ثالث', url: 'https://example.com/sales' },
+          { id: 3, title: 'صدور بدنه', url: 'https://example.com/body' },
+          { id: 4, title: 'استعلام‌ها', url: 'https://example.com/inquiry' },
+          { id: 5, title: 'گزارش کمیسیون', url: 'https://example.com/reports' },
+          { id: 6, title: 'پشتیبانی', url: 'https://example.com/support' }
         ]
       });
     }

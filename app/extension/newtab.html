@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="newtab.css">
 </head>
 <body>
-  <div class="background-pattern"></div>
+  <div class="background-mesh"></div>
   
   <!-- Floating Header Components -->
   <header class="floating-header">
@@ -18,14 +18,19 @@
       </div>
     </div>
     <div class="header-right">
-      <div id="weather-widget" class="glass-chip">
+      <div id="weather-widget" class="glass-chip weather-chip">
         <span class="weather-icon" id="weather-icon">🌤️</span>
         <div class="weather-info">
-          <span id="weather-temp" class="temp">--°</span>
-          <span id="weather-desc" class="text-small">در حال دریافت...</span>
+          <span id="weather-temp" class="temp">۲۴°</span>
+          <span id="weather-desc" class="text-small">تهران - آفتابی</span>
         </div>
       </div>
-      <button id="settings-btn" class="glass-chip icon-btn" title="تنظیمات">⚙️</button>
+      <button class="glass-chip icon-btn" title="اعلان‌ها">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+      </button>
+      <button id="settings-btn" class="glass-chip icon-btn profile-btn" title="پروفایل">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+      </button>
     </div>
   </header>
 
@@ -33,12 +38,18 @@
     <!-- Search Module -->
     <section class="search-module">
       <form id="search-form">
-        <div class="search-input-wrapper">
-          <span class="search-icon">🔍</span>
+        <div class="search-input-wrapper glass-panel">
+          <span class="search-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          </span>
           <input type="text" id="search-input" placeholder="جستجو در اینترنت..." autocomplete="off" autofocus>
           <div class="search-actions">
-            <button type="button" id="clear-search" class="icon-btn-small hidden" title="پاک کردن">✕</button>
-            <button type="button" id="voice-search" class="icon-btn-small" title="جستجوی صوتی">🎤</button>
+            <button type="button" id="clear-search" class="icon-btn-small hidden" title="پاک کردن">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <button type="button" id="voice-search" class="icon-btn-small" title="جستجوی صوتی">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+            </button>
             <div class="divider"></div>
             <select id="search-engine" class="engine-select">
               <option value="google">Google</option>
@@ -56,35 +67,188 @@
         <!-- Bookmarks injected here -->
       </div>
       <button id="add-bookmark-btn" class="add-btn glass-chip">
-        <span>+</span> افزودن
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        افزودن
       </button>
     </section>
 
-    <!-- Widgets Row -->
-    <section class="widgets-row">
-      <!-- Todo Widget -->
-      <div class="widget glass-panel">
-        <div class="widget-header">
-          <h3>لیست کارها</h3>
-        </div>
-        <div class="widget-content">
-          <form id="todo-form" class="todo-form">
-            <input type="text" id="todo-input" placeholder="کار جدید..." autocomplete="off">
-            <button type="submit" class="primary-btn">+</button>
-          </form>
-          <ul id="todo-list" class="todo-list"></ul>
+    <!-- Dashboard Grid -->
+    <section class="dashboard-grid">
+      
+      <!-- Right Column -->
+      <div class="col-right">
+        <!-- Calendar Mock -->
+        <div class="widget glass-panel">
+          <div class="widget-header flex-between">
+            <div class="flex-center gap-2">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-500"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              <h3>تقویم</h3>
+            </div>
+            <span class="text-sm text-muted">اسفند ۱۴۰۴</span>
+          </div>
+          <div class="widget-content">
+            <div class="calendar-grid">
+              <div class="cal-day-header">ش</div><div class="cal-day-header">ی</div><div class="cal-day-header">د</div><div class="cal-day-header">س</div><div class="cal-day-header">چ</div><div class="cal-day-header">پ</div><div class="cal-day-header">ج</div>
+              <div class="cal-day empty"></div><div class="cal-day empty"></div><div class="cal-day empty"></div><div class="cal-day empty"></div><div class="cal-day empty"></div><div class="cal-day">۱</div><div class="cal-day">۲</div>
+              <div class="cal-day">۳</div><div class="cal-day">۴</div><div class="cal-day active">۵</div><div class="cal-day">۶</div><div class="cal-day">۷</div><div class="cal-day">۸</div><div class="cal-day">۹</div>
+              <div class="cal-day">۱۰</div><div class="cal-day">۱۱</div><div class="cal-day">۱۲</div><div class="cal-day">۱۳</div><div class="cal-day">۱۴</div><div class="cal-day">۱۵</div><div class="cal-day">۱۶</div>
+            </div>
+            <div class="mt-4">
+              <h4 class="text-xs text-muted mb-2">برنامه‌های امروز</h4>
+              <div class="event-item border-l-purple">
+                <div class="event-title">جلسه تمدید آلفا</div>
+                <div class="event-time">۱۰:۰۰</div>
+              </div>
+              <div class="event-item border-l-blue mt-2">
+                <div class="event-title">پیگیری خسارت</div>
+                <div class="event-time">۱۴:۳۰</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Notes Widget -->
-      <div class="widget glass-panel">
-        <div class="widget-header">
-          <h3>یادداشت سریع</h3>
+      <!-- Center Column -->
+      <div class="col-center">
+        <!-- Action Center Mock -->
+        <div class="widget glass-panel action-center">
+          <div class="widget-header flex-between">
+            <div class="flex-center gap-2">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-500"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+              <h3>مرکز اقدام</h3>
+            </div>
+          </div>
+          <div class="tabs">
+            <div class="tab active">تمدیدهای امروز</div>
+            <div class="tab">کارتابل من</div>
+            <div class="tab">خسارت‌های در انتظار</div>
+          </div>
+          <div class="widget-content">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>نام مشتری</th>
+                  <th>نوع بیمه</th>
+                  <th>تاریخ سررسید</th>
+                  <th>وضعیت</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>علی محمدی</td>
+                  <td>ثالث</td>
+                  <td>امروز</td>
+                  <td><span class="badge badge-warning">نیاز به تماس</span></td>
+                </tr>
+                <tr>
+                  <td>شرکت آلفا</td>
+                  <td>مسئولیت</td>
+                  <td>فردا</td>
+                  <td><span class="badge badge-info">در حال بررسی</span></td>
+                </tr>
+                <tr>
+                  <td>سارا احمدی</td>
+                  <td>بدنه</td>
+                  <td>۳ روز دیگر</td>
+                  <td><span class="badge badge-success">ارسال پیامک</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
-        <div class="widget-content">
-          <textarea id="quick-notes" placeholder="یادداشت‌های خود را اینجا بنویسید..."></textarea>
+
+        <div class="grid-2-col mt-4">
+          <!-- Todo Widget -->
+          <div class="widget glass-panel h-auto">
+            <div class="widget-header flex-between">
+              <div class="flex-center gap-2">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-500"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+                <h3>لیست کارها</h3>
+              </div>
+            </div>
+            <div class="widget-content">
+              <form id="todo-form" class="todo-form">
+                <input type="text" id="todo-input" placeholder="کار جدید..." autocomplete="off">
+                <button type="submit" class="primary-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                </button>
+              </form>
+              <ul id="todo-list" class="todo-list"></ul>
+            </div>
+          </div>
+
+          <!-- Notes Widget -->
+          <div class="widget glass-panel h-auto">
+            <div class="widget-header flex-between">
+              <div class="flex-center gap-2">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-amber-500"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                <h3>یادداشت سریع</h3>
+              </div>
+            </div>
+            <div class="widget-content">
+              <textarea id="quick-notes" placeholder="یادداشت‌های خود را اینجا بنویسید..."></textarea>
+            </div>
+          </div>
         </div>
       </div>
+
+      <!-- Left Column -->
+      <div class="col-left">
+        <!-- KPIs Mock -->
+        <div class="widget glass-panel">
+          <div class="widget-header flex-between">
+            <div class="flex-center gap-2">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-500"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+              <h3>شاخص‌های امروز</h3>
+            </div>
+          </div>
+          <div class="widget-content">
+            <div class="kpi-grid">
+              <div class="kpi-card">
+                <div class="kpi-icon bg-indigo-50 text-indigo-500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg></div>
+                <div class="kpi-value">۱۲</div>
+                <div class="kpi-label">تعداد صدور</div>
+              </div>
+              <div class="kpi-card">
+                <div class="kpi-icon bg-emerald-50 text-emerald-500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></div>
+                <div class="kpi-value">۴۵ <span class="text-xs">م.ت</span></div>
+                <div class="kpi-label">حق‌بیمه</div>
+              </div>
+              <div class="kpi-card">
+                <div class="kpi-icon bg-amber-50 text-amber-500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
+                <div class="kpi-value">۳</div>
+                <div class="kpi-label">در انتظار تایید</div>
+              </div>
+              <div class="kpi-card">
+                <div class="kpi-icon bg-rose-50 text-rose-500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg></div>
+                <div class="kpi-value">۵</div>
+                <div class="kpi-label">خسارت باز</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Target Mock -->
+        <div class="widget glass-panel mt-4 h-auto">
+          <div class="widget-header flex-between">
+            <div class="flex-center gap-2">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-purple-500"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+              <h3>هدف ماهانه</h3>
+            </div>
+            <span class="text-sm font-bold text-purple-600">۶۵٪</span>
+          </div>
+          <div class="widget-content">
+            <div class="flex justify-between text-sm mb-2">
+              <span class="text-muted">فروش فعلی: ۶۵۰ م.ت</span>
+              <span class="text-muted">هدف: ۱,۰۰۰ م.ت</span>
+            </div>
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" style="width: 65%;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </section>
   </main>
 
