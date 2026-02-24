@@ -10,7 +10,11 @@ const ICON_MAP: Record<string, React.ElementType> = {
 };
 
 export function AlertsWidget() {
-  const [alerts, setAlerts] = useState<any[]>([]);
+  const [alerts, setAlerts] = useState<any[]>([
+    { id: 'mock-1', title: 'هشدار افت عملکرد', desc: 'صدور بیمه‌نامه در هفته جاری ۲۰٪ کاهش یافته است.', type: 'warning', icon: 'AlertTriangle', color: 'text-amber-500', bg: 'bg-amber-50 dark:bg-amber-500/10', border: 'border-amber-200 dark:border-amber-500/20' },
+    { id: 'mock-2', title: 'رد شدن بیمه‌نامه بدنه', desc: 'بیمه‌نامه شماره ۱۲۳۴۵ به دلیل نقص مدارک رد شد.', type: 'error', icon: 'XCircle', color: 'text-rose-500', bg: 'bg-rose-50 dark:bg-rose-500/10', border: 'border-rose-200 dark:border-rose-500/20' },
+    { id: 'mock-3', title: 'بروزرسانی سیستم سنهاب', desc: 'سیستم سنهاب فردا از ساعت ۲ تا ۴ بامداد در دسترس نخواهد بود.', type: 'info', icon: 'Info', color: 'text-blue-500', bg: 'bg-blue-50 dark:bg-blue-500/10', border: 'border-blue-200 dark:border-blue-500/20' },
+  ]);
 
   useEffect(() => {
     fetch('/api/db/alerts')
