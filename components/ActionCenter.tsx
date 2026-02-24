@@ -5,9 +5,19 @@ import * as Tabs from '@radix-ui/react-tabs';
 import { CalendarClock, CheckSquare, AlertCircle, Phone, MessageSquare, FilePlus, ExternalLink } from 'lucide-react';
 
 export function ActionCenter() {
-  const [renewals, setRenewals] = useState<any[]>([]);
-  const [tasks, setTasks] = useState<any[]>([]);
-  const [claims, setClaims] = useState<any[]>([]);
+  const [renewals, setRenewals] = useState<any[]>([
+    { id: 'mock-1', name: 'علی محمدی', type: 'ثالث', date: 'امروز', status: 'نیاز به تماس', statusColor: 'text-amber-500 bg-amber-50 dark:bg-amber-500/10' },
+    { id: 'mock-2', name: 'شرکت آلفا', type: 'مسئولیت', date: 'فردا', status: 'در حال بررسی', statusColor: 'text-blue-500 bg-blue-50 dark:bg-blue-500/10' },
+    { id: 'mock-3', name: 'سارا احمدی', type: 'بدنه', date: '۳ روز دیگر', status: 'ارسال پیامک', statusColor: 'text-emerald-500 bg-emerald-50 dark:bg-emerald-500/10' },
+  ]);
+  const [tasks, setTasks] = useState<any[]>([
+    { id: 'mock-1', title: 'بررسی مدارک خسارت', type: 'خسارت', priority: 'بالا', due: 'امروز', status: 'باز' },
+    { id: 'mock-2', title: 'تماس با مشتریان VIP', type: 'فروش', priority: 'متوسط', due: 'فردا', status: 'در حال انجام' },
+  ]);
+  const [claims, setClaims] = useState<any[]>([
+    { id: 'C-1024', policy: 'بدنه - پژو ۲۰۶', stage: 'ارزیابی', status: 'نیاز به مدرک' },
+    { id: 'C-1025', policy: 'ثالث - پراید', stage: 'پرداخت', status: 'تایید شده' },
+  ]);
 
   useEffect(() => {
     fetch('/api/db/renewals').then(r => r.json()).then(d => Array.isArray(d) && setRenewals(d));
